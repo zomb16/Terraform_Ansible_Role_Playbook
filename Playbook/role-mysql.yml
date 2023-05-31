@@ -13,7 +13,7 @@
       login_user=root
     tags:
     - mysql
- - name: add sample data to database 
+  - name: add sample data to database 
     copy: src=dump.sql dest=/tmp/dump.sql
     tags:
     - mysql
