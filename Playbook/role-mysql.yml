@@ -13,3 +13,15 @@
       login_user=root
     tags:
     - mysql
+ - name: add sample data to database 
+    copy: src=dump.sql dest=/tmp/dump.sql
+    tags:
+    - mysql
+  - name: insert sample data into database
+    mysql_db: name=myflixdb state=import target=/tmp/dump.sql
+    tags:
+    - mysql
+  - name: Add records to MySQL
+    mysql_db: name=myflixdb state=import target=/tmp/dump.sql
+    tags:
+    - mysql
